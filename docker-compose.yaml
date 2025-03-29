@@ -1,0 +1,12 @@
+# How to run: docker-compose up
+services:
+
+   spring-boot:
+      image: spring-boot-aws-sns
+      networks:
+         - aws-sns-network
+      ports:
+         - 80:8080
+
+networks:
+  aws-sns-network:
