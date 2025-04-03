@@ -68,14 +68,14 @@ class MessagePublisherImplTest {
         when(snsClient.publish(any(PublishRequest.class))).thenReturn(publishResponse);
         when(publishResponse.sdkHttpResponse().statusCode()).thenReturn(200);
         when(publishResponse.sdkHttpResponse().statusText()).thenReturn(Optional.of("ok"));
-        when(publishResponse.messageId()).thenReturn("2021-02-23");
+        when(publishResponse.messageId()).thenReturn("2025-02-23");
 
         SnsResponse response = messagePublisher.publish(message);
 
         verify(snsClient).publish(any(PublishRequest.class));
         assertThat(response.getStatusCode()).isEqualTo(200);
         assertThat(response.getMessage()).isEqualTo("ok");
-        assertThat(response.getPublishedMessageId()).isEqualTo("2021-02-23");
+        assertThat(response.getPublishedMessageId()).isEqualTo("2025-02-23");
     }
 
     @Test
